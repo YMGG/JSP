@@ -4,18 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>数据处理页面</title>
+<title>系统主页面</title>
 </head>
-<body>
-<%
-   String address=request.getParameter("link");
-   if(address!=null)
-   {
-	   if(address.equals("qhdxcbs"))
-		   response.sendRedirect("http://www.tup.tsinghua.edu.cn/");
-	   else
-		   response.sendRedirect("http://www.moe.edu.cn/");
-   }
-%>
+<body bgcolor="pink">
+<% String name=(String)session.getAttribute("usreName"); %>
+你好<%=name %>,欢迎你的光临！<br>
+<a href="exit.jsp">[退出系统]</a>
 </body>
 </html>
