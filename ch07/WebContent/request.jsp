@@ -4,11 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>系统主页面</title>
+<title>Insert title here</title>
 </head>
-<body bgcolor="pink">
-<% String name=(String)session.getAttribute("usreName"); %>
-你好<%=name %>,欢迎你的光临！<br>
-<a href="exit.jsp">[退出系统]</a>
+<body>
+<form action ="connect.jsp" method="post">
+  输入查询年龄<input name="age" type="text"/>
+    <button type="submit">提交</button>
+
+</form>
+
 </body>
 </html>

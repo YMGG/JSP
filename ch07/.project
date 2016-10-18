@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>6-9</name>
+	<name>ch07</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -33,4 +33,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/lib/sqljdbc-chs.jar</name>
+			<type>1</type>
+			<location>C:/Program Files (x86)/gakataka/Student/recv/sqljdbc-chs.jar</location>
+		</link>
+	</linkedResources>
 </projectDescription>
