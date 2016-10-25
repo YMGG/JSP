@@ -9,16 +9,15 @@
 %>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>强制插入</title>
+<title>强制删除</title>
 </head>
 <body>
-   <form action="insertStudent.jsp" method="post">
-       <p>学号：<input name="id" /></p>
-       <p>姓名：<input name="name" /></p>
-       <p>年龄：<input name="age" /></p>
-       <p>专业：<input name="major" /></p>
+   输入删除
+<form action="delete.jsp" method="post">
+请输入姓名删除 ：<input name="name" type="text"/><br>
+<button type="sumbit" >提交</button>
+</form>
        
-       <button type="submit">提交</button>
-   </form>
+    
 </body>
 </html>
