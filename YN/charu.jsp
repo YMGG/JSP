@@ -1,17 +1,28 @@
-<%@ page language="java" contentType="text/html; charset=gb2312 " import="java.sql.*,java.io.*" pageEncoding="utf-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=gb2312 " import="java.sql.*,java.io.*"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>删除信息</title>
+<title>插入数据</title>
 </head>
 <body>
 <% 
+String id =request.getParameter("id");
+byte b1[]=id.getBytes("ISO-8859-1");
+id=new String(b1,"UTF-8");
 String name =request.getParameter("name");
-byte b1[]=name.getBytes("ISO-8859-1");
-name=new String(b1,"UTF-8");
+byte b2[]=name.getBytes("ISO-8859-1");
+name=new String(b2,"UTF-8");
+String sex =request.getParameter("sex");
+byte b3[]=sex.getBytes("ISO-8859-1");
+sex=new String(b3,"UTF-8");
+String software =request.getParameter("software");
+byte b4[]=software.getBytes("ISO-8859-1");
+software=new String(b4,"UTF-8");
+
 Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance(); 
-String connectSQL="jdbc:sqlserver://localhost:1433;DatabaseName=Gunsrosez";
+String connectSQL="jdbc:sqlserver://localhost:1433;DatabaseName=hlq";
 Connection conn=java.sql.DriverManager.getConnection(connectSQL,"sa","");
 Statement stmt=conn.createStatement();
 ResultSet rs= stmt.executeQuery("select * from shuju");
@@ -26,15 +37,19 @@ while(rs.next()){
 out.println("</table>");
 %>
 <% 
-String sql="delete from shuju where name = ? ";
+String sql="insert into shuju values (?,?,?,?)";
 PreparedStatement st=conn.prepareStatement(sql);
-st.setString(1,name);
+st.setInt(1,Integer.parseInt(id));
+st.setString(2,name);
+st.setString(3,sex);
+st.setString(4,software);
 st.executeUpdate();
 System.out.println(st.toString());
-rs.close();
 st.close();
+rs.close();
+stmt.close();
 conn.close();
 %>
-删除信息了！
+插入信息了！
 </body>
 </html>
